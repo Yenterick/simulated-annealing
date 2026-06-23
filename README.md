@@ -26,6 +26,10 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ## References
 Kernighan, B. W., & Ritchie, D. M. (1988). *The C Programming Language*. Prentice Hall.
+James Madison University. (s.f.). *C documentation examples.*. Documentation examples for C programs
 Glover, F. W., & Kochenberger, G. A. (2003). *Handbook of Metaheuristics*. Springer.
 Cormen, T. H. (2013). *Algorithms Unlocked*. MIT Press.
+Adhikari, B. (2017, February 2017). 
+*The simulated annealing algorithm explained with an analogy to a toy* [Video]. YouTube. https://youtu.be/eBmU1ONJ-os?si=ZyIu43WscIgbVJRR
+
 

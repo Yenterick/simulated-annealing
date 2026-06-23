@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* custom imports */
+#include "annealing/annealing.h"
+
 int main(int argc, char *argv[]) {
     printf("\n");
 
@@ -28,6 +31,9 @@ int main(int argc, char *argv[]) {
     } else {
         output = fopen("./output.txt", "w");
     }
+
+    /* Initializes the srand seed */
+    srand(time(NULL));
 
     /* Closes the file connections */
     fclose(input);
