@@ -53,6 +53,8 @@ Solution simulated_annealing(
     double max_time, 
     unsigned int max_on_same) 
 {
+    srand(time(NULL));                                              /* Initializing the srand seed */
+
     Solution current = generate_initial_solution(graph);            /* It generates a first random solution using the graph */       
     current.cost = calculate_route_cost(graph, &current);           /* then, it calculates the total cost of the solution. */
 

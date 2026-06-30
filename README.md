@@ -19,38 +19,9 @@
 
 ## Prerequisites
 
-You need a C compiler and Make installed.
-
-#### Linux (Debian/Ubuntu)
-
-```bash
-sudo apt update
-sudo apt install build-essential
-```
-
-#### Arch Linux / Manjaro
-
-```bash
-sudo pacman -S base-devel
-```
-
-#### macOS
-
-```bash
-xcode-select --install
-```
-
-#### Windows
-
-Install either:
-
-- MSYS2 (includes gcc and make)
-- WSL (Ubuntu + build-essential)
-
-```bash
-gcc --version
-make --version
-```
+- gcc (C compiler).
+- Make (Makefile).
+- Python 3.1x.x.
 
 ---
 
@@ -66,34 +37,80 @@ or:
 ```bash
 make all
 ```
-It will leave a binary file, in case you want to delete it, you can do:
+It will leave a binary file on the `./src/core/target` folder, in case you want to delete it, you can do:
 ```bash
 make clean
 ```
 
 #### 2. Prepare your Files
 
-Make sure your files have the next format:
-```txt
-graph_size
-id x y
-id x y
-id x y
+Get a dataset with at least latitude and longitude in grades, if you can't find one, there's already one on the `./examples`
+
+```csv
+codigo-de-municipio,municipio,latitud,longitud,metros-sobre-el-nivel-del-mar
+76001,cali,3.42158,-76.5205,995
+76020,alcala,4.67429,-75.7832,1290
+76036,andalucia,4.16701,-76.1662,955
 ...
 ```
-If you don't have any file prepared you can use the example in `./examples/input.txt`.
 
-#### 3. Run the Project
+#### 3. Install Python requirements
 
-You can run the command by using:
-```bash
-./annealing input_path output_path
+The requirements are on `./requirements.txt`:
+
+```txt
+numpy==2.5.0
+pandas==3.0.3
+matplotlib==3.11.0
 ```
-Or by using:
+
+so you'll just need to run:
 ```bash
-./annealing input_path
+pip install -r requirements.txt
 ```
-and it will create the output file in the current directory.
+
+#### 4. Run the algorithm
+
+The main file is on `./src/main.py`, so you'll need to navigate inside:
+```bash
+cd ./src/
+```
+and then, you can run it with its default values using:
+```bash
+python main.py
+```
+or if you want to change a value you can see the flags with:
+```bash
+python main.py --help
+```
+or
+```bash
+python main.py -h
+```
+
+---
+
+## Manual
+
+```bash
+Usage: main.py [options]                                             
+
+Options:
+  -h, --help            show this help message and exit
+  -i INPUT, --input=INPUT
+                        input dataset to process with simulated annealing
+  -o OUTPUT, --output=OUTPUT
+                        output path to generate the results
+  -d ID_FIELD, --id_field=ID_FIELD
+                        the name of the field with the node id in the dataset
+  -n NAME_FIELD, --name_field=NAME_FIELD
+                        the name of the field with the node name in the
+                        dataset
+  -x X_FIELD, --x_field=X_FIELD
+                        the name of the field with the x coord in the dataset
+  -y Y_FIELD, --y_field=Y_FIELD
+                        the name of the field with the y coord in the dataset
+```
 
 ---
 
@@ -160,6 +177,10 @@ This project is licensed under the [MIT License](./LICENSE).
 - Glover, F. W., & Kochenberger, G. A. (2003). *Handbook of Metaheuristics*. Springer.
 - Cormen, T. H. (2013). *Algorithms Unlocked*. MIT Press.
 - Proxihox, adamant-pwn & whyvineet. (2026, May 24). *Simulated annealing. In Algorithms for Competitive Programming*. https://cp-algorithms.com/num_methods/simulated_annealing.html
-- Adhikari, B. (2017, February 2017). *The simulated annealing algorithm explained with an analogy to a toy* [Video]. YouTube. https://youtu.be/eBmU1ONJ-os?si=ZyIu43WscIgbVJRR
+- Adhikari, B. (2017, February 4). *The simulated annealing algorithm explained with an analogy to a toy* [Video]. YouTube. https://youtu.be/eBmU1ONJ-os?si=ZyIu43WscIgbVJRR
+- Unidad Administrativa Especial de Catastro Distrital, Bogotá D.C. (2026, May 18). *Datos Geográficos De Los Municipios de Valle del Cauca* [Data Set]. Datos.gov.co. https://www.datos.gov.co/Mapas-Nacionales/Datos-Geogr-ficos-De-Los-Municipios-de-Valle-del-C/iryd-wvq5/about_data
+
+
+
 
 

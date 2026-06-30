@@ -1,4 +1,6 @@
 from ctypes import *
+
+# Custom imports
 from models.Node import NodePtr
 
 """
@@ -8,10 +10,9 @@ typedef struct Graph {
 } Graph;
 """
 
+
 class Graph(Structure):
-    _fields_ = [
-        ("nodes", NodePtr),
-        ("size", c_uint)
-    ]
+    _fields_ = [("nodes", NodePtr), ("size", c_uint)]
+
 
 GraphPtr = POINTER(Graph)

@@ -7,10 +7,9 @@ typedef struct Solution {
 } Solution;
 """
 
+
 class Solution(Structure):
-    _fields_ = [
-        ("route", POINTER(c_int)),
-        ("cost", c_double)
-    ]
+    _fields_ = [("route", POINTER(c_int)), ("cost", c_double)]
+
 
 SolutionPtr = POINTER(Solution)
