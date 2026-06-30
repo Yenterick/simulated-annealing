@@ -1,8 +1,7 @@
-# Default target: Compiles and runs the program
+# Default target: Compiles the program
 all:
-	gcc ./src/annealing/annealing.c ./src/main.c -o annealing
-	./annealing
+	gcc ./src/core/annealing.c -fPIC -shared -o ./src/core/target/annealing.so
 
 # Removes generated binary
 clean:
-	rm -f ./annealing
+	rm -f ./src/core/target/annealing.so

@@ -1,0 +1,17 @@
+from ctypes import *
+from models.Node import NodePtr
+
+"""
+typedef struct Graph {
+    Node* nodes;
+    unsigned int size;
+} Graph;
+"""
+
+class Graph(Structure):
+    _fields_ = [
+        ("nodes", NodePtr),
+        ("size", c_uint)
+    ]
+
+GraphPtr = POINTER(Graph)
